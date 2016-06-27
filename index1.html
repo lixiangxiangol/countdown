@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas">
+        当前浏览器不支持Canvas，请更换浏览器后再试
+    </canvas>
+</body>
+<script>
+    var canvas=document.getElementById('canvas');
+    var context=document.getContext('2d');
+    var image=new Image();
+    window.onload= function () {
+        canvas.width=1152;
+        canvas.height=768;
+        image.src='1.jpg';
+        image.onload= function () {
+            context.drawImage(image,0,0);
+        }
+    }
+
+    canvas.onmousedown= function (e) {
+        e.preventDefault();
+        console.log(e.clientX, e.clientY);
+    }
+</script>
+</html>
